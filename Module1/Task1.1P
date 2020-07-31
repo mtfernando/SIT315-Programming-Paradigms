@@ -1,0 +1,24 @@
+int signal = 6;
+int led = 13;
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(signal, INPUT); //Set input signal for HC-SR505
+  pinMode(led, OUTPUT);
+}
+
+void loop()
+{
+  if(digitalRead(signal)==HIGH){
+   Serial.println("Motion Detected!!!");
+   digitalWrite(led, HIGH);
+   delay(1000);
+   digitalWrite(led, LOW);
+  }
+  
+  else{
+    Serial.println("No Motion...");
+    delay(1000);
+  }
+    
+}
